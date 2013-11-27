@@ -316,7 +316,7 @@ public class TransferSSHTools extends Transfer
 				src = m_details.getLocalRoot()+dir+item;
 				dst = m_details.getSiteRoot()+dir+item;
 				
-				m_sftp.get(src,dst, m_monitor);
+				m_sftp.get(dst,src, m_monitor);
 			}else{
 				src = m_details.getLocalRoot()+dir+item;
 				dst = m_details.getSiteRoot()+dir+item;
@@ -373,7 +373,7 @@ public class TransferSSHTools extends Transfer
 		if(m_open == true){
 			try{				
 				//	Grab the contents of this directory
-				List contents = m_sftp.ls(directory);
+				List contents = m_sftp.ls(m_details.getSiteRoot() + "/" ＋directory);
 				
 				//	Loop through all the returned values
 				Iterator i = contents.iterator();
